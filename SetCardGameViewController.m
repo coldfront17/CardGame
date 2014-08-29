@@ -76,6 +76,8 @@
 }
 
 
+/*
+
 - (NSAttributedString *)replaceCardDescriptionsInText:(NSAttributedString *)text
 {
     NSMutableAttributedString *newText = [text mutableCopy];
@@ -99,7 +101,9 @@
     self.flipDescription.attributedText =
     [self replaceCardDescriptionsInText:self.flipDescription.attributedText];
 }
-
+*/
+// some issue with SetCard.m method SetCard cardsFromText
+// Reason unknown
 
 
 
@@ -116,6 +120,18 @@
 {
     if ([segue.identifier isEqualToString:@"Show History"]) {
         if ([segue.destinationViewController isKindOfClass:[HistoryViewController class]]) {
+            [segue.destinationViewController setHistory:self.flipHistory];
+        }
+    }
+}
+
+
+/*
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Show History"]) {
+        if ([segue.destinationViewController isKindOfClass:[HistoryViewController class]]) {
             NSMutableArray *attributedHistory = [NSMutableArray array];
             for (NSString *flip in self.flipHistory) {
                 NSAttributedString *attributedFlip = [[NSAttributedString alloc] initWithString:flip];
@@ -125,6 +141,6 @@
         }
     }
 }
-
+*/
 
 @end
